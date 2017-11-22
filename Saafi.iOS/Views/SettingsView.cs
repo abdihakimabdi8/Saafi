@@ -30,7 +30,7 @@ namespace Saafi.iOS.Views
 
             set.Bind(VisitSiteButton).To(vm => vm.HelpCommand);
             set.Bind(_currencyPickerViewModel).For(b => b.SelectedChangedCommand).To(vm => vm.SwitchCurrencyCommand);
-            set.Bind(AboutTextView).To(vm => vm.AboutContent);
+            //set.Bind(AboutTextView).To(vm => vm.AboutContent);
 
             CustomizeTextField(CurrencyTextField, _currencyPickerView);
             set.Apply();

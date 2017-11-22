@@ -9,6 +9,8 @@
     <RootNamespace>Saafi.iOS</RootNamespace>
     <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
     <AssemblyName>Saafi.iOS</AssemblyName>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhoneSimulator' ">
     <DebugSymbols>true</DebugSymbols>
@@ -84,12 +86,13 @@
     <CodesignKey>iPhone Distribution</CodesignKey>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="AllRecipientsCell .cs" />
-    <Compile Include="AllRecipientsCell .designer.cs">
-      <DependentUpon>AllRecipientsCell .cs</DependentUpon>
+    <Compile Include="Views\AllRecipientsCell.cs" />
+    <Compile Include="Views\AllRecipientsCell.designer.cs">
+      <DependentUpon>AllRecipientsCell.cs</DependentUpon>
     </Compile>
-    <Compile Include="AllSendsCell.cs" />
-    <Compile Include="AllSendsCell.designer.cs">
+    <Compile Include="Views\AllRecipientsView.cs" />
+    <Compile Include="Views\AllSendsCell.cs" />
+    <Compile Include="Views\AllSendsCell.designer.cs">
       <DependentUpon>AllSendsCell.cs</DependentUpon>
     </Compile>
     <Compile Include="Bootstrap\JsonPluginBootstrap.cs" />
@@ -107,22 +110,15 @@
     <Compile Include="TableViewSources\AllRecipientsTableViewSource.cs" />
     <Compile Include="TableViewSources\AllSendsTableViewSource.cs" />
     <Compile Include="Utility\SaafiColors.cs" />
-    <Compile Include="Views\AllRecipientsView.cs" />
-    <Compile Include="Views\AllRecipientsView.designer.cs">
-      <DependentUpon>AllRecipientsView.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Views\AllSendsView .cs" />
-    <Compile Include="Views\AllSendsView .designer.cs">
-      <DependentUpon>AllSendsView .cs</DependentUpon>
-    </Compile>
+    <Compile Include="Views\AllSendsView.cs" />
     <Compile Include="Views\BaseView.cs" />
     <Compile Include="Views\MainView.cs" />
     <Compile Include="Views\MainView.designer.cs">
       <DependentUpon>MainView.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\RecipientView .cs" />
-    <Compile Include="Views\RecipientView .designer.cs">
-      <DependentUpon>RecipientView .cs</DependentUpon>
+    <Compile Include="Views\RecipientView.cs" />
+    <Compile Include="Views\RecipientView.designer.cs">
+      <DependentUpon>RecipientView.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\SendView.cs" />
     <Compile Include="Views\SendView.designer.cs">
@@ -364,6 +360,11 @@
     </ImageAsset>
     <InterfaceDefinition Include="Storyboard.storyboard" />
     <None Include="packages.config" />
+    <InterfaceDefinition Include="Views\AllRecipientsCell.xib" />
+    <InterfaceDefinition Include="Views\RecipientView.xib" />
+    <InterfaceDefinition Include="Views\MainMenuView.xib" />
+    <InterfaceDefinition Include="Views\SendView.xib" />
+    <InterfaceDefinition Include="Views\AllSendsCell.xib" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
@@ -439,6 +440,12 @@
     <Reference Include="System" />
     <Reference Include="System.IO.Compression" />
     <Reference Include="System.Net.Http" />
+    <Reference Include="System.Net.Http.Extensions, Version=2.2.29.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Net.Http.2.2.29\lib\Xamarin.iOS10\System.Net.Http.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.Primitives, Version=4.2.29.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Net.Http.2.2.29\lib\Xamarin.iOS10\System.Net.Http.Primitives.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
     <Reference Include="Xamarin.iOS" />
@@ -454,4 +461,11 @@
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
+  <Import Project="..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets" Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets'))" />
+  </Target>
 </Project>

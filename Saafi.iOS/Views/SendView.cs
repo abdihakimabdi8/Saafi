@@ -3,7 +3,7 @@ using CoreGraphics;
 using MvvmCross.Binding.BindingContext;
 using MvvmCross.Binding.iOS.Views;
 using Saafi.Core.ViewModel;
-using Saafi.iOS.Controls;
+//using Saafi.iOS.Controls;
 using Saafi.iOS.Utility;
 using UIKit;
 

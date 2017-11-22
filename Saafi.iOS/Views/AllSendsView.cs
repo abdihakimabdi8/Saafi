@@ -7,8 +7,8 @@ using MvvmCross.Binding.BindingContext;
 
 namespace Saafi.iOS.Views
 {
-    [Register(nameof(AllRecipientsView))]
-    public class AllRecipientsView : MvxViewController<AllRecipientsViewModel>
+    [Register(nameof(AllSendsView))]
+    public class AllSendsView : MvxViewController<AllRecipientsViewModel>
     {
         public override void ViewDidLoad()
         {
@@ -18,10 +18,10 @@ namespace Saafi.iOS.Views
             tableView.RowHeight = 150;
             Add(tableView);
 
-            var source = new MvxSimpleTableViewSource(tableView, AllRecipientsCell.Key, AllRecipientsCell.Key);
+            var source = new MvxSimpleTableViewSource(tableView, AllSendsCell.Key, AllSendsCell.Key);
             tableView.Source = source;
 
-            this.CreateBinding(source).To((AllRecipientsViewModel vm) => vm.AllRecipients).Apply();
+            this.CreateBinding(source).To((AllSendsViewModel vm) => vm.AllSends).Apply();
             tableView.ReloadData();
         }
     }

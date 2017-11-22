@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using Foundation;
 using UIKit;
 using MvvmCross.Binding.iOS.Views;
@@ -7,17 +7,17 @@ using Saafi.Core.Models;
 
 namespace Saafi.iOS.Views
 {
-    public partial class AllRecipientsCell: MvxTableViewCell
+    public partial class RecipientCell : MvxTableViewCell
     {
-        public static readonly NSString Key = new NSString(nameof(AllRecipientsCell));
+        public static readonly NSString Key = new NSString(nameof(RecipientCell));
         public static readonly UINib Nib;
 
-        static AllRecipientsCell()
+        static RecipientCell()
         {
-            Nib = UINib.FromName("AllRecipientsCell", NSBundle.MainBundle);
+            Nib = UINib.FromName("RecipientCell", NSBundle.MainBundle);
         }
 
-        protected AllRecipientsCell(IntPtr handle) : base(handle)
+        protected RecipientCell(IntPtr handle) : base(handle)
         {
             this.DelayBind(() => {
                 this.CreateBinding(RecipientNameLabel).To((Recipient vm) => vm.RecipientName).Apply();

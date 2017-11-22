@@ -11,30 +11,32 @@ using UIKit;
 
 namespace Saafi.iOS.Views
 {
-    [Register ("AllRecipientsCell")]
-    partial class AllRecipientsCell
+    [Register("RecipientCell")]
+    partial class RecipientCell
     {
         [Outlet]
-        [GeneratedCode ("iOS Designer", "1.0")]
+        [GeneratedCode("iOS Designer", "1.0")]
         UIKit.UILabel RecipientNameLabel { get; set; }
 
         [Outlet]
-        [GeneratedCode ("iOS Designer", "1.0")]
+        [GeneratedCode("iOS Designer", "1.0")]
         UIKit.UILabel RecipientPhoneNumberLabel { get; set; }
 
-        
 
-        void ReleaseDesignerOutlets ()
+
+        void ReleaseDesignerOutlets()
         {
-            if (RecipientNameLabel != null) {
-                RecipientNameLabel.Dispose ();
+            if (RecipientNameLabel != null)
+            {
+                RecipientNameLabel.Dispose();
                 RecipientNameLabel = null;
             }
 
-            if (RecipientPhoneNumberLabel != null) {
-                RecipientPhoneNumberLabel.Dispose ();
+            if (RecipientPhoneNumberLabel != null)
+            {
+                RecipientPhoneNumberLabel.Dispose();
                 RecipientPhoneNumberLabel = null;
             }
-       }
+        }
     }
 }

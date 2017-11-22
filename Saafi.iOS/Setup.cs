@@ -1,27 +1,25 @@
 ﻿using MvvmCross.Core.ViewModels;
 using MvvmCross.iOS.Platform;
-using MvvmCross.iOS.Views;
 using MvvmCross.iOS.Views.Presenters;
 using MvvmCross.Platform;
 using Saafi.Core;
-using Saafi.Core.Contracts.Services;
-using Saafi.iOS.Services;
-using UIKit;
 
 namespace Saafi.iOS
 {
-    public class Setup: MvxIosSetup
+    /// <summary>
+    /// Every MvvmCross UI project needs a setup class.
+    /// For iOS, inherit from MvxIosSetup
+    /// 
+    /// Initializes:
+    /// - IoC system
+    /// - MvvmCross data binding
+    /// - App class and collection of ViewModels
+    /// - UI project and collection of Views
+    /// </summary>
+    public class Setup : MvxIosSetup
     {
-        private MvxApplicationDelegate _applicationDelegate;
-        UIWindow _window;
-
-        public Setup(MvxApplicationDelegate applicationDelegate, UIWindow window) : base(applicationDelegate, window)
-        {
-            _applicationDelegate = applicationDelegate;
-            _window = window;
-        }
-
-        public Setup(IMvxApplicationDelegate applicationDelegate, IMvxIosViewPresenter presenter) : base(applicationDelegate, presenter)
+        public Setup(MvxApplicationDelegate appDelegate, IMvxIosViewPresenter presenter)
+            : base(appDelegate, presenter)
         {
         }
 
@@ -29,20 +27,7 @@ namespace Saafi.iOS
         {
             var dbConn = FileAccessHelper.GetLocalFilePath("saafimaster.db3");
             Mvx.RegisterSingleton(new RecipientRepository(dbConn));
-            Mvx.RegisterSingleton(new TransferRepository(dbConn));
-            Mvx.RegisterSingleton(new SendRepository(dbConn));
-            return new App();
-        }
-
-        protected override void InitializeIoC()
-        {
-            base.InitializeIoC();
-            Mvx.RegisterSingleton<IDialogService>(() => new DialogService());
-        }
-
-        protected override IMvxIosViewsContainer CreateIosViewsContainer()
-        {
-            return new StoryBoardContainer();
+            return new Core.App();
         }
     }
 }

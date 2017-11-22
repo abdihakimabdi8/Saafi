@@ -18,7 +18,7 @@ namespace Saafi.iOS.Views
             tableView.RowHeight = 150;
             Add(tableView);
 
-            var source = new MvxSimpleTableViewSource(tableView, AllRecipientsCell.Key, AllRecipientsCell.Key);
+            var source = new MvxSimpleTableViewSource(tableView, RecipientCell.Key, RecipientCell.Key);
             tableView.Source = source;
 
             this.CreateBinding(source).To((AllRecipientsViewModel vm) => vm.AllRecipients).Apply();

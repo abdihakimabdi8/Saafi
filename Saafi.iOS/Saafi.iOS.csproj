@@ -3,14 +3,12 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">iPhoneSimulator</Platform>
-    <ProjectGuid>{E1EC6F54-0A9D-4519-B196-12B243E806AE}</ProjectGuid>
+    <ProjectGuid>{F5456319-C408-4CD1-A3DF-91017C602CBB}</ProjectGuid>
     <ProjectTypeGuids>{FEACFBD2-3405-455C-9665-78FE426C6842};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <OutputType>Exe</OutputType>
     <RootNamespace>Saafi.iOS</RootNamespace>
     <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
-    <AssemblyName>Saafi.iOS</AssemblyName>
-    <NuGetPackageImportStamp>
-    </NuGetPackageImportStamp>
+    <AssemblyName>SaafiOS</AssemblyName>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhoneSimulator' ">
     <DebugSymbols>true</DebugSymbols>
@@ -21,7 +19,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <ConsolePause>false</ConsolePause>
-    <MtouchArch>x86_64</MtouchArch>
+    <MtouchArch>i386</MtouchArch>
     <MtouchLink>None</MtouchLink>
     <MtouchDebug>true</MtouchDebug>
   </PropertyGroup>
@@ -32,7 +30,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <MtouchLink>None</MtouchLink>
-    <MtouchArch>x86_64</MtouchArch>
+    <MtouchArch>i386</MtouchArch>
     <ConsolePause>false</ConsolePause>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhone' ">
@@ -44,7 +42,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <ConsolePause>false</ConsolePause>
-    <MtouchArch>ARM64</MtouchArch>
+    <MtouchArch>ARMv7, ARM64</MtouchArch>
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
     <CodesignKey>iPhone Developer</CodesignKey>
     <MtouchDebug>true</MtouchDebug>
@@ -56,7 +54,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
-    <MtouchArch>ARM64</MtouchArch>
+    <MtouchArch>ARMv7, ARM64</MtouchArch>
     <ConsolePause>false</ConsolePause>
     <CodesignKey>iPhone Developer</CodesignKey>
   </PropertyGroup>
@@ -67,7 +65,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <ConsolePause>False</ConsolePause>
-    <MtouchArch>ARM64</MtouchArch>
+    <MtouchArch>ARMv7, ARM64</MtouchArch>
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
     <BuildIpa>True</BuildIpa>
     <CodesignProvision>Automatic:AdHoc</CodesignProvision>
@@ -80,344 +78,66 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <ConsolePause>False</ConsolePause>
-    <MtouchArch>ARM64</MtouchArch>
+    <MtouchArch>ARMv7, ARM64</MtouchArch>
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
     <CodesignProvision>Automatic:AppStore</CodesignProvision>
     <CodesignKey>iPhone Distribution</CodesignKey>
   </PropertyGroup>
+  <PropertyGroup Condition=" '$(RunConfiguration)' == 'Default' ">
+    <AppExtensionDebugBundleId />
+  </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Views\AllRecipientsCell.cs" />
-    <Compile Include="Views\AllRecipientsCell.designer.cs">
-      <DependentUpon>AllRecipientsCell.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Views\AllRecipientsView.cs" />
-    <Compile Include="Views\AllSendsCell.cs" />
-    <Compile Include="Views\AllSendsCell.designer.cs">
-      <DependentUpon>AllSendsCell.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Bootstrap\JsonPluginBootstrap.cs" />
-    <Compile Include="Bootstrap\MessengerPluginBootstrap.cs" />
-    <Compile Include="Bootstrap\SqlitePluginBootstrap.cs" />
-    <Compile Include="Bootstrap\WebBrowserPluginBootstrap.cs" />
-    <Compile Include="Controls\CalendarHelper.cs" />
     <Compile Include="FileAccessHelper.cs" />
-    <Compile Include="LinkerIncludePlease.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
-    <Compile Include="Services\DialogService.cs" />
     <Compile Include="Setup.cs" />
-    <Compile Include="StoryBoardContainer.cs" />
-    <Compile Include="TableViewSources\AllRecipientsTableViewSource.cs" />
-    <Compile Include="TableViewSources\AllSendsTableViewSource.cs" />
-    <Compile Include="Utility\SaafiColors.cs" />
-    <Compile Include="Views\AllSendsView.cs" />
-    <Compile Include="Views\BaseView.cs" />
-    <Compile Include="Views\MainView.cs" />
-    <Compile Include="Views\MainView.designer.cs">
-      <DependentUpon>MainView.cs</DependentUpon>
+    <Compile Include="Views\AllRecipientsView.cs" />
+    <Compile Include="Views\RecipientCell.cs" />
+    <Compile Include="Views\RecipientCell.designer.cs">
+      <DependentUpon>RecipientCell.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\RecipientView.cs" />
     <Compile Include="Views\RecipientView.designer.cs">
       <DependentUpon>RecipientView.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\SendView.cs" />
-    <Compile Include="Views\SendView.designer.cs">
-      <DependentUpon>SendView.cs</DependentUpon>
+    <Compile Include="Views\MainMenuView.cs" />
+    <Compile Include="Views\MainMenuView.designer.cs">
+      <DependentUpon>MainMenuView.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\SettingsView.cs" />
-    <Compile Include="Views\SettingsView.designer.cs">
-      <DependentUpon>SettingsView.cs</DependentUpon>
-    </Compile>
-    <ImageAsset Include="Resources\Assets.xcassets\splash.imageset\splash%403x.png">
-      <InProject>false</InProject>
-    </ImageAsset>
-    <ImageAsset Include="Resources\Assets.xcassets\splash.imageset\splash%402x.png">
-      <InProject>false</InProject>
-    </ImageAsset>
-    <ImageAsset Include="Resources\Assets.xcassets\splash.imageset\splash.png">
-      <InProject>false</InProject>
-    </ImageAsset>
-    <ImageAsset Include="Resources\Assets.xcassets\ic-settings-normal.imageset\ic-settings-normal%403x.png">
-      <InProject>false</InProject>
-    </ImageAsset>
-    <ImageAsset Include="Resources\Assets.xcassets\ic-settings-normal.imageset\ic-settings-normal%402x.png">
-      <InProject>false</InProject>
-    </ImageAsset>
-    <ImageAsset Include="Resources\Assets.xcassets\ic-settings-normal.imageset\ic-settings-normal.png">
-      <InProject>false</InProject>
-    </ImageAsset>
-    <ImageAsset Include="Resources\Assets.xcassets\ic-settings-active.imageset\ic-settings-active%403x.png">
-      <InProject>false</InProject>
-    </ImageAsset>
-    <ImageAsset Include="Resources\Assets.xcassets\ic-settings-active.imageset\ic-settings-active%402x.png">
-      <InProject>false</InProject>
-    </ImageAsset>
-    <ImageAsset Include="Resources\Assets.xcassets\ic-settings-active.imageset\ic-settings-active.png">
-      <InProject>false</InProject>
-    </ImageAsset>
-    <ImageAsset Include="Resources\Assets.xcassets\ic-search-normal.imageset\ic-search-normal%403x.png">
-      <InProject>false</InProject>
-    </ImageAsset>
-    <ImageAsset Include="Resources\Assets.xcassets\ic-search-normal.imageset\ic-search-normal%402x.png">
-      <InProject>false</InProject>
-    </ImageAsset>
-    <ImageAsset Include="Resources\Assets.xcassets\ic-search-normal.imageset\ic-search-normal.png">
-      <InProject>false</InProject>
-    </ImageAsset>
-    <ImageAsset Include="Resources\Assets.xcassets\ic-search-active.imageset\ic-search-active%403x.png">
-      <InProject>false</InProject>
-    </ImageAsset>
-    <ImageAsset Include="Resources\Assets.xcassets\ic-search-active.imageset\ic-search-active%402x.png">
-      <InProject>false</InProject>
-    </ImageAsset>
-    <ImageAsset Include="Resources\Assets.xcassets\ic-search-active.imageset\ic-search-active.png">
-      <InProject>false</InProject>
-    </ImageAsset>
-    <ImageAsset Include="Resources\Assets.xcassets\ic-saved-normal.imageset\ic-saved-normal%403x.png">
-      <InProject>false</InProject>
-    </ImageAsset>
-    <ImageAsset Include="Resources\Assets.xcassets\ic-saved-normal.imageset\ic-saved-normal%402x.png">
-      <InProject>false</InProject>
-    </ImageAsset>
-    <ImageAsset Include="Resources\Assets.xcassets\ic-saved-normal.imageset\ic-saved-normal.png">
-      <InProject>false</InProject>
-    </ImageAsset>
-    <ImageAsset Include="Resources\Assets.xcassets\ic-saved-active.imageset\ic-saved-active%403x.png">
-      <InProject>false</InProject>
-    </ImageAsset>
-    <ImageAsset Include="Resources\Assets.xcassets\ic-saved-active.imageset\ic-saved-active%402x.png">
-      <InProject>false</InProject>
-    </ImageAsset>
-    <ImageAsset Include="Resources\Assets.xcassets\ic-saved-active.imageset\ic-saved-active.png">
-      <InProject>false</InProject>
-    </ImageAsset>
-    <ImageAsset Include="Resources\Assets.xcassets\ic-home-normal.imageset\ic-home-normal%403x.png">
-      <InProject>false</InProject>
-    </ImageAsset>
-    <ImageAsset Include="Resources\Assets.xcassets\ic-home-normal.imageset\ic-home-normal%402x.png">
-      <InProject>false</InProject>
-    </ImageAsset>
-    <ImageAsset Include="Resources\Assets.xcassets\ic-home-normal.imageset\ic-home-normal.png">
-      <InProject>false</InProject>
-    </ImageAsset>
-    <ImageAsset Include="Resources\Assets.xcassets\ic-home-active.imageset\ic-home-active%403x.png">
-      <InProject>false</InProject>
-    </ImageAsset>
-    <ImageAsset Include="Resources\Assets.xcassets\ic-home-active.imageset\ic-home-active%402x.png">
-      <InProject>false</InProject>
-    </ImageAsset>
-    <ImageAsset Include="Resources\Assets.xcassets\ic-home-active.imageset\ic-home-active.png">
-      <InProject>false</InProject>
-    </ImageAsset>
-    <ImageAsset Include="Resources\Assets.xcassets\arrow-up.imageset\arrow-up%403x.png">
-      <InProject>false</InProject>
-    </ImageAsset>
-    <ImageAsset Include="Resources\Assets.xcassets\arrow-up.imageset\arrow-up%402x.png">
-      <InProject>false</InProject>
-    </ImageAsset>
-    <ImageAsset Include="Resources\Assets.xcassets\arrow-up.imageset\arrow-up.png">
-      <InProject>false</InProject>
-    </ImageAsset>
-    <ImageAsset Include="Resources\Assets.xcassets\arrow-right.imageset\arrow-right%403x.png">
-      <InProject>false</InProject>
-    </ImageAsset>
-    <ImageAsset Include="Resources\Assets.xcassets\arrow-right.imageset\arrow-right%402x.png">
-      <InProject>false</InProject>
-    </ImageAsset>
-    <ImageAsset Include="Resources\Assets.xcassets\arrow-right.imageset\arrow-right.png">
-      <InProject>false</InProject>
-    </ImageAsset>
-    <ImageAsset Include="Resources\Assets.xcassets\arrow-left.imageset\arrow-left%403x.png">
-      <InProject>false</InProject>
-    </ImageAsset>
-    <ImageAsset Include="Resources\Assets.xcassets\arrow-left.imageset\arrow-left%402x.png">
-      <InProject>false</InProject>
-    </ImageAsset>
-    <ImageAsset Include="Resources\Assets.xcassets\arrow-left.imageset\arrow-left.png">
-      <InProject>false</InProject>
-    </ImageAsset>
-    <ImageAsset Include="Resources\Assets.xcassets\arrow-down.imageset\arrow-down%403x.png">
-      <InProject>false</InProject>
-    </ImageAsset>
-    <ImageAsset Include="Resources\Assets.xcassets\arrow-down.imageset\arrow-down%402x.png">
-      <InProject>false</InProject>
-    </ImageAsset>
-    <ImageAsset Include="Resources\Assets.xcassets\arrow-down.imageset\arrow-down.png">
-      <InProject>false</InProject>
-    </ImageAsset>
-    <ImageAsset Include="Resources\Assets.xcassets\AppIcons.appiconset\iTunesArtwork%402x.png">
-      <InProject>false</InProject>
-    </ImageAsset>
-    <ImageAsset Include="Resources\Assets.xcassets\AppIcons.appiconset\iTunesArtwork.png">
-      <InProject>false</InProject>
-    </ImageAsset>
-    <ImageAsset Include="Resources\Assets.xcassets\AppIcons.appiconset\Icon%402x.png">
-      <InProject>false</InProject>
-    </ImageAsset>
-    <ImageAsset Include="Resources\Assets.xcassets\AppIcons.appiconset\Icon.png">
-      <InProject>false</InProject>
-    </ImageAsset>
-    <ImageAsset Include="Resources\Assets.xcassets\AppIcons.appiconset\Icon-Small%403x.png">
-      <InProject>false</InProject>
-    </ImageAsset>
-    <ImageAsset Include="Resources\Assets.xcassets\AppIcons.appiconset\Icon-Small%402x.png">
-      <InProject>false</InProject>
-    </ImageAsset>
-    <ImageAsset Include="Resources\Assets.xcassets\AppIcons.appiconset\Icon-Small.png">
-      <InProject>false</InProject>
-    </ImageAsset>
-    <ImageAsset Include="Resources\Assets.xcassets\AppIcons.appiconset\Icon-Small-50%402x.png">
-      <InProject>false</InProject>
-    </ImageAsset>
-    <ImageAsset Include="Resources\Assets.xcassets\AppIcons.appiconset\Icon-Small-50.png">
-      <InProject>false</InProject>
-    </ImageAsset>
-    <ImageAsset Include="Resources\Assets.xcassets\AppIcons.appiconset\Icon-83.5%402x.png">
-      <InProject>false</InProject>
-    </ImageAsset>
-    <ImageAsset Include="Resources\Assets.xcassets\AppIcons.appiconset\Icon-76%402x.png">
-      <InProject>false</InProject>
-    </ImageAsset>
-    <ImageAsset Include="Resources\Assets.xcassets\AppIcons.appiconset\Icon-76.png">
-      <InProject>false</InProject>
-    </ImageAsset>
-    <ImageAsset Include="Resources\Assets.xcassets\AppIcons.appiconset\Icon-72%402x.png">
-      <InProject>false</InProject>
-    </ImageAsset>
-    <ImageAsset Include="Resources\Assets.xcassets\AppIcons.appiconset\Icon-72.png">
-      <InProject>false</InProject>
-    </ImageAsset>
-    <ImageAsset Include="Resources\Assets.xcassets\AppIcons.appiconset\Icon-60%403x.png">
-      <InProject>false</InProject>
-    </ImageAsset>
-    <ImageAsset Include="Resources\Assets.xcassets\AppIcons.appiconset\Icon-60%402x.png">
-      <InProject>false</InProject>
-    </ImageAsset>
-    <ImageAsset Include="Resources\Assets.xcassets\AppIcons.appiconset\Icon-60.png">
-      <InProject>false</InProject>
-    </ImageAsset>
-    <ImageAsset Include="Resources\Assets.xcassets\AppIcons.appiconset\Icon-40%403x.png">
-      <InProject>false</InProject>
-    </ImageAsset>
-    <ImageAsset Include="Resources\Assets.xcassets\AppIcons.appiconset\Icon-40%402x.png">
-      <InProject>false</InProject>
-    </ImageAsset>
-    <ImageAsset Include="Resources\Assets.xcassets\AppIcons.appiconset\Icon-40.png">
-      <InProject>false</InProject>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\LaunchImage.launchimage\Contents.json">
-      <InProject>false</InProject>
-    </ImageAsset>
     <None Include="GettingStarted.Xamarin" />
     <None Include="Info.plist" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <InterfaceDefinition Include="Resources\LaunchScreen.xib" />
     <Content Include="Entitlements.plist" />
-    <ImageAsset Include="Resources\Assets.xcassets\Contents.json">
-      <InProject>false</InProject>
-    </ImageAsset>
-    <ImageAsset Include="Resources\Assets.xcassets\AppIcons.appiconset\Contents.json">
-      <InProject>false</InProject>
-    </ImageAsset>
-    <ImageAsset Include="Resources\Assets.xcassets\arrow-down.imageset\Contents.json">
-      <InProject>false</InProject>
-    </ImageAsset>
-    <ImageAsset Include="Resources\Assets.xcassets\arrow-left.imageset\Contents.json">
-      <InProject>false</InProject>
-    </ImageAsset>
-    <ImageAsset Include="Resources\Assets.xcassets\arrow-right.imageset\Contents.json">
-      <InProject>false</InProject>
-    </ImageAsset>
-    <ImageAsset Include="Resources\Assets.xcassets\arrow-up.imageset\Contents.json">
-      <InProject>false</InProject>
-    </ImageAsset>
-    <ImageAsset Include="Resources\Assets.xcassets\ic-home-active.imageset\Contents.json">
-      <InProject>false</InProject>
-    </ImageAsset>
-    <ImageAsset Include="Resources\Assets.xcassets\ic-home-normal.imageset\Contents.json">
-      <InProject>false</InProject>
-    </ImageAsset>
-    <ImageAsset Include="Resources\Assets.xcassets\ic-saved-active.imageset\Contents.json">
-      <InProject>false</InProject>
-    </ImageAsset>
-    <ImageAsset Include="Resources\Assets.xcassets\ic-saved-normal.imageset\Contents.json">
-      <InProject>false</InProject>
-    </ImageAsset>
-    <ImageAsset Include="Resources\Assets.xcassets\ic-search-active.imageset\Contents.json">
-      <InProject>false</InProject>
-    </ImageAsset>
-    <ImageAsset Include="Resources\Assets.xcassets\ic-search-normal.imageset\Contents.json">
-      <InProject>false</InProject>
-    </ImageAsset>
-    <ImageAsset Include="Resources\Assets.xcassets\ic-settings-active.imageset\Contents.json">
-      <InProject>false</InProject>
-    </ImageAsset>
-    <ImageAsset Include="Resources\Assets.xcassets\ic-settings-normal.imageset\Contents.json">
-      <InProject>false</InProject>
-    </ImageAsset>
-    <ImageAsset Include="Resources\Assets.xcassets\splash.imageset\Contents.json">
-      <InProject>false</InProject>
-    </ImageAsset>
-    <InterfaceDefinition Include="Storyboard.storyboard" />
-    <None Include="packages.config" />
-    <InterfaceDefinition Include="Views\AllRecipientsCell.xib" />
-    <InterfaceDefinition Include="Views\RecipientView.xib" />
     <InterfaceDefinition Include="Views\MainMenuView.xib" />
-    <InterfaceDefinition Include="Views\SendView.xib" />
-    <InterfaceDefinition Include="Views\AllSendsCell.xib" />
+    <InterfaceDefinition Include="Views\RecipientCell.xib" />
+    <None Include="packages.config" />
+    <InterfaceDefinition Include="Views\RecipientView.xib" />
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="Microsoft.CSharp" />
-    <Reference Include="MvvmCross.Binding, Version=5.4.2.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\MvvmCross.Binding.5.4.2\lib\Xamarin.iOS10\MvvmCross.Binding.dll</HintPath>
+    <Reference Include="MvvmCross.Binding, Version=4.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MvvmCross.Binding.4.4.0\lib\Xamarin.iOS10\MvvmCross.Binding.dll</HintPath>
     </Reference>
-    <Reference Include="MvvmCross.Binding.iOS, Version=5.4.2.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\MvvmCross.Binding.5.4.2\lib\Xamarin.iOS10\MvvmCross.Binding.iOS.dll</HintPath>
+    <Reference Include="MvvmCross.Binding.iOS, Version=4.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MvvmCross.Binding.4.4.0\lib\Xamarin.iOS10\MvvmCross.Binding.iOS.dll</HintPath>
     </Reference>
-    <Reference Include="MvvmCross.Core, Version=5.4.2.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\MvvmCross.Core.5.4.2\lib\Xamarin.iOS10\MvvmCross.Core.dll</HintPath>
+    <Reference Include="MvvmCross.Core, Version=4.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MvvmCross.Core.4.4.0\lib\Xamarin.iOS10\MvvmCross.Core.dll</HintPath>
     </Reference>
-    <Reference Include="MvvmCross.iOS, Version=5.4.2.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\MvvmCross.Core.5.4.2\lib\Xamarin.iOS10\MvvmCross.iOS.dll</HintPath>
+    <Reference Include="MvvmCross.iOS, Version=4.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MvvmCross.Core.4.4.0\lib\Xamarin.iOS10\MvvmCross.iOS.dll</HintPath>
     </Reference>
-    <Reference Include="MvvmCross.Localization, Version=5.4.2.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\MvvmCross.Binding.5.4.2\lib\Xamarin.iOS10\MvvmCross.Localization.dll</HintPath>
+    <Reference Include="MvvmCross.Localization, Version=4.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MvvmCross.Binding.4.4.0\lib\Xamarin.iOS10\MvvmCross.Localization.dll</HintPath>
     </Reference>
-    <Reference Include="MvvmCross.Platform, Version=5.4.2.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\MvvmCross.Platform.5.4.2\lib\Xamarin.iOS10\MvvmCross.Platform.dll</HintPath>
+    <Reference Include="MvvmCross.Platform, Version=4.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MvvmCross.Platform.4.4.0\lib\Xamarin.iOS10\MvvmCross.Platform.dll</HintPath>
     </Reference>
-    <Reference Include="MvvmCross.Platform.iOS, Version=5.4.2.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\MvvmCross.Platform.5.4.2\lib\Xamarin.iOS10\MvvmCross.Platform.iOS.dll</HintPath>
+    <Reference Include="MvvmCross.Platform.iOS, Version=4.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MvvmCross.Platform.4.4.0\lib\Xamarin.iOS10\MvvmCross.Platform.iOS.dll</HintPath>
     </Reference>
-    <Reference Include="MvvmCross.Plugins.Json, Version=5.4.2.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\MvvmCross.Plugin.Json.5.4.2\lib\Xamarin.iOS10\MvvmCross.Plugins.Json.dll</HintPath>
-    </Reference>
-    <Reference Include="MvvmCross.Plugins.Messenger, Version=5.4.2.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\MvvmCross.Plugin.Messenger.5.4.2\lib\Xamarin.iOS10\MvvmCross.Plugins.Messenger.dll</HintPath>
-    </Reference>
-    <Reference Include="MvvmCross.Plugins.Sqlite, Version=4.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\MvvmCross.Plugin.SQLitePCL.4.3.4\lib\Xamarin.iOS10\MvvmCross.Plugins.Sqlite.dll</HintPath>
-    </Reference>
-    <Reference Include="MvvmCross.Plugins.Sqlite.iOS, Version=4.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\MvvmCross.Plugin.SQLitePCL.4.3.4\lib\Xamarin.iOS10\MvvmCross.Plugins.Sqlite.iOS.dll</HintPath>
-    </Reference>
-    <Reference Include="MvvmCross.Plugins.WebBrowser, Version=5.4.2.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\MvvmCross.Plugin.WebBrowser.5.4.2\lib\Xamarin.iOS10\MvvmCross.Plugins.WebBrowser.dll</HintPath>
-    </Reference>
-    <Reference Include="MvvmCross.Plugins.WebBrowser.iOS, Version=5.4.2.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\MvvmCross.Plugin.WebBrowser.5.4.2\lib\Xamarin.iOS10\MvvmCross.Plugins.WebBrowser.iOS.dll</HintPath>
-    </Reference>
-    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\packages\Newtonsoft.Json.10.0.3\lib\netstandard1.3\Newtonsoft.Json.dll</HintPath>
-    </Reference>
-    <Reference Include="Plugin.Connectivity, Version=3.0.3.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Xam.Plugin.Connectivity.3.0.3\lib\Xamarin.iOS10\Plugin.Connectivity.dll</HintPath>
-    </Reference>
-    <Reference Include="Plugin.Connectivity.Abstractions, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Xam.Plugin.Connectivity.3.0.3\lib\Xamarin.iOS10\Plugin.Connectivity.Abstractions.dll</HintPath>
-    </Reference>
-    <Reference Include="SQLite-net, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\sqlite-net-pcl.1.4.118\lib\netstandard1.1\SQLite-net.dll</HintPath>
+    <Reference Include="SQLite-net, Version=1.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\sqlite-net-pcl.1.3.1\lib\netstandard1.1\SQLite-net.dll</HintPath>
     </Reference>
     <Reference Include="SQLitePCL.batteries, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\SQLitePCL.bundle_green.0.9.3\lib\portable-net45+netcore45+wpa81+wp8+MonoAndroid10+MonoTouch10+Xamarin.iOS10\SQLitePCL.batteries.dll</HintPath>
@@ -426,46 +146,29 @@
       <HintPath>..\packages\SQLitePCL.raw.0.9.3\lib\Xamarin.iOS10\SQLitePCL.raw.dll</HintPath>
     </Reference>
     <Reference Include="SQLitePCLRaw.batteries_green, Version=1.0.0.0, Culture=neutral, PublicKeyToken=a84b7dcfb1391f7f, processorArchitecture=MSIL">
-      <HintPath>..\packages\SQLitePCLRaw.bundle_green.1.1.9\lib\Xamarin.iOS10\SQLitePCLRaw.batteries_green.dll</HintPath>
+      <HintPath>..\packages\SQLitePCLRaw.bundle_green.1.1.2\lib\Xamarin.iOS10\SQLitePCLRaw.batteries_green.dll</HintPath>
     </Reference>
     <Reference Include="SQLitePCLRaw.batteries_v2, Version=1.0.0.0, Culture=neutral, PublicKeyToken=8226ea5df37bcae9, processorArchitecture=MSIL">
-      <HintPath>..\packages\SQLitePCLRaw.bundle_green.1.1.9\lib\Xamarin.iOS10\SQLitePCLRaw.batteries_v2.dll</HintPath>
+      <HintPath>..\packages\SQLitePCLRaw.bundle_green.1.1.2\lib\Xamarin.iOS10\SQLitePCLRaw.batteries_v2.dll</HintPath>
     </Reference>
     <Reference Include="SQLitePCLRaw.core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=1488e028ca7ab535, processorArchitecture=MSIL">
-      <HintPath>..\packages\SQLitePCLRaw.core.1.1.9\lib\Xamarin.iOS10\SQLitePCLRaw.core.dll</HintPath>
+      <HintPath>..\packages\SQLitePCLRaw.core.1.1.2\lib\Xamarin.iOS10\SQLitePCLRaw.core.dll</HintPath>
     </Reference>
     <Reference Include="SQLitePCLRaw.provider.sqlite3, Version=1.0.0.0, Culture=neutral, PublicKeyToken=62684c7b4f184e3f, processorArchitecture=MSIL">
-      <HintPath>..\packages\SQLitePCLRaw.provider.sqlite3.ios_unified.1.1.9\lib\Xamarin.iOS10\SQLitePCLRaw.provider.sqlite3.dll</HintPath>
+      <HintPath>..\packages\SQLitePCLRaw.provider.sqlite3.ios_unified.1.1.2\lib\Xamarin.iOS10\SQLitePCLRaw.provider.sqlite3.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.IO.Compression" />
     <Reference Include="System.Net.Http" />
-    <Reference Include="System.Net.Http.Extensions, Version=2.2.29.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.Net.Http.2.2.29\lib\Xamarin.iOS10\System.Net.Http.Extensions.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Net.Http.Primitives, Version=4.2.29.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.Net.Http.2.2.29\lib\Xamarin.iOS10\System.Net.Http.Primitives.dll</HintPath>
-    </Reference>
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
     <Reference Include="Xamarin.iOS" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Saafi.Core\Saafi.Core.csproj">
-      <Project>{cd441588-55de-4f38-8f7a-39d6b27c9d90}</Project>
-      <Name>Saafi.Core</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Saafi.Localization\Saafi.Localization.csproj">
-      <Project>{47beb4d5-c37c-4d33-a274-9995ae7563d8}</Project>
-      <Name>Saafi.Localization</Name>
+      <Project>{21dab85f-bf30-4669-8b46-60ebc7f46950}</Project>
+      <Name>RestaurantBilling.Core</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
-  <Import Project="..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets" Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets')" />
-  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
-    <PropertyGroup>
-      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
-    </PropertyGroup>
-    <Error Condition="!Exists('..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets'))" />
-  </Target>
 </Project>

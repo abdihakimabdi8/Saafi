@@ -1,6 +1,5 @@
-﻿using System;
-using UIKit;
-
+﻿using UIKit;
+using System;
 namespace Saafi.iOS
 {
     public class Application
@@ -8,6 +7,8 @@ namespace Saafi.iOS
         // This is the main entry point of the application.
         static void Main(string[] args)
         {
+            // if you want to use a different Application Delegate class from "AppDelegate"
+            // you can specify it here.
             try
             {
                 UIApplication.Main(args, null, "AppDelegate");
@@ -18,6 +19,6 @@ namespace Saafi.iOS
                 string e = ex.Message;
                 throw ex;
             }
-        }
+        }       
     }
-}
+} 
